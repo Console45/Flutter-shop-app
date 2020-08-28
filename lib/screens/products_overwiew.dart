@@ -5,7 +5,21 @@ class ProductsOverwiew extends StatefulWidget {
   _ProductsOverwiewState createState() => _ProductsOverwiewState();
 }
 
-class _ProductsOverwiewState extends State<ProductsOverwiew> {
+class _ProductsOverwiewState extends State<ProductsOverwiew>
+    with SingleTickerProviderStateMixin {
+  TabController _tabController;
+  @override
+  void initState() {
+    super.initState();
+    _tabController = new TabController(length: 4, vsync: this);
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -44,9 +58,44 @@ class _ProductsOverwiewState extends State<ProductsOverwiew> {
                 borderRadius: BorderRadius.circular(30),
               ),
             ),
-          )
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          _productsTab(_tabController)
         ],
       ),
     );
   }
+}
+
+Widget _productsTab(TabController tabController) {
+  return TabBar(
+    tabs: const <Widget>[
+      Tab(
+        text: 'Recommend',
+      ),
+      Tab(
+        text: 'Top',
+      ),
+      Tab(
+        text: 'Indoor',
+      ),
+      Tab(
+        text: 'Outdoor',
+      ),
+    ],
+    controller: tabController,
+    isScrollable: true,
+    indicator: UnderlineTabIndicator(borderSide: BorderSide.none),
+    labelColor: Color(0xff515151),
+    labelStyle: TextStyle(
+      fontWeight: FontWeight.bold,
+      fontSize: 15,
+    ),
+    unselectedLabelStyle: TextStyle(
+      fontWeight: FontWeight.w700,
+    ),
+    unselectedLabelColor: Color(0xffB9B9B9),
+  );
 }
