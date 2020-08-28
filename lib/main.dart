@@ -1,3 +1,4 @@
+import 'package:Myshop/screens/home..dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,14 +14,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(),
+      home: Home(),
     );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold();
   }
 }
