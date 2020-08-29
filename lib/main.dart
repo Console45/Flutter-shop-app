@@ -1,4 +1,4 @@
-import 'package:Myshop/screens/home..dart';
+import 'package:Myshop/screens/products_overwiew.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -14,17 +14,17 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Colors.white,
         accentColor: Color(0xff21B4A6),
-        canvasColor: Color(0xffFBFBFB),
+        canvasColor: Colors.white,
         visualDensity: VisualDensity.adaptivePlatformDensity,
         textTheme: TextTheme(
           headline1: GoogleFonts.sourceSansPro(
-            fontSize: 22,
+            fontSize: 28,
             color: Color(0xff686868),
-            fontWeight: FontWeight.w400,
+            fontWeight: FontWeight.w700,
           ),
         ),
       ),
-      home: Home(),
+      home: ProductsOverwiew(),
     );
   }
 }
