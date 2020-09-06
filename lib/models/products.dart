@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 
 enum Category {
-  Indoor,
-  Outdoor,
-}
-enum Type {
-  Small,
-  Tall,
-  Medium,
+  Fruits,
+  Vegetables,
+  Breakfast,
+  Beverages,
 }
 
 class Product {
@@ -16,11 +13,8 @@ class Product {
   final String description;
   final double price;
   final String imageUrl;
-  final String height;
-  final String humidity;
+  final Nutrition nutrition;
   final Category category;
-  final Type type;
-  final String plants;
   bool isFavorite;
   Product({
     @required this.id,
@@ -28,11 +22,22 @@ class Product {
     @required this.description,
     @required this.price,
     @required this.imageUrl,
-    @required this.plants,
     @required this.category,
-    @required this.height,
-    @required this.humidity,
-    @required this.type,
+    this.nutrition,
     this.isFavorite = false,
+  });
+}
+
+class Nutrition {
+  final int calories;
+  final String protein;
+  final String fat;
+  final String cabohydrate;
+
+  Nutrition({
+    @required this.calories,
+    @required this.protein,
+    @required this.fat,
+    @required this.cabohydrate,
   });
 }
