@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       title: 'Shop App',
       theme: ThemeData(
         primaryColor: Colors.white,
-        accentColor: Color(0xff21B4A6),
+        accentColor: Color(0xff462D1A),
         canvasColor: Colors.white,
         visualDensity: VisualDensity.adaptivePlatformDensity,
         textTheme: TextTheme(
