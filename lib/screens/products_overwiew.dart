@@ -1,3 +1,4 @@
+import 'package:Myshop/widgets/categories/fruits.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -154,7 +155,7 @@ Widget _productsTab(TabController tabController) {
 Widget _productsTabView(TabController tabController) {
   return TabBarView(
     children: [
-      Text('Fruits'),
+      Fruits(),
       Text('Vegetables'),
       Text('Breakfast'),
       Text('Beverages'),
