@@ -17,10 +17,14 @@ class MyApp extends StatelessWidget {
         canvasColor: Colors.white,
         visualDensity: VisualDensity.adaptivePlatformDensity,
         textTheme: TextTheme(
-          headline1: GoogleFonts.sourceSansPro(
+          headline1: GoogleFonts.roboto(
             fontSize: 28,
-            color: Color(0xff686868),
-            fontWeight: FontWeight.w700,
+            color: Color(0xff462D1A),
+            fontWeight: FontWeight.w600,
+          ),
+          bodyText1: GoogleFonts.roboto(
+            fontSize: 18,
+            color: Color(0xffD5AB9C),
           ),
         ),
       ),
