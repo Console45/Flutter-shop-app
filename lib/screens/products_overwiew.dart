@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class ProductsOverwiew extends StatefulWidget {
   @override
@@ -22,48 +23,91 @@ class _ProductsOverwiewState extends State<ProductsOverwiew>
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.only(
-        top: MediaQuery.of(context).size.height * 0.08,
-        left: MediaQuery.of(context).size.width * 0.08,
-        right: MediaQuery.of(context).size.width * 0.08,
-      ),
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'Discovery',
-                style: Theme.of(context).textTheme.headline1,
-              ),
-              CircleAvatar(
-                backgroundColor: Theme.of(context).accentColor,
-              )
-            ],
-          ),
-          SizedBox(
-            height: 40,
-          ),
-          TextField(
-            decoration: InputDecoration(
-              contentPadding: const EdgeInsets.all(17),
-              filled: true,
-              hintText: 'Search Plants',
-              hintStyle: TextStyle(color: Color(0xffCACACA), fontSize: 14),
-              prefixIcon: Icon(Icons.search),
-              fillColor: Theme.of(context).primaryColor,
-              border: UnderlineInputBorder(
-                borderSide: BorderSide.none,
-                borderRadius: BorderRadius.circular(30),
+    return Scaffold(
+      body: Container(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              height: 30,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 25),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  GestureDetector(
+                    child: SvgPicture.asset(
+                      'assets/icons/drawToggle.svg',
+                      color: Theme.of(context).accentColor,
+                      width: 28,
+                    ),
+                  ),
+                  Icon(
+                    Icons.shopping_basket,
+                    color: Theme.of(context).accentColor,
+                  ),
+                ],
               ),
             ),
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          _productsTab(_tabController)
-        ],
+            SizedBox(
+              height: 10,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 25),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Hello Nana,',
+                    style: Theme.of(context).textTheme.headline1,
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Text(
+                    'What do you like to find?',
+                    style: Theme.of(context).textTheme.bodyText1,
+                  )
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 40,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25),
+              child: TextField(
+                decoration: InputDecoration(
+                  prefixIcon: Padding(
+                    padding: const EdgeInsets.all(15),
+                    child: SvgPicture.asset(
+                      'assets/icons/search.svg',
+                      color: Color(0xffC9B8B8),
+                    ),
+                  ),
+                  contentPadding: const EdgeInsets.all(18),
+                  hintText: 'Search',
+                  hintStyle: TextStyle(color: Color(0xffC9B8B8), fontSize: 18),
+                  filled: true,
+                  fillColor: Color(0xffF8F8F8),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                    borderSide: BorderSide.none,
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            _productsTab(_tabController),
+            Container(
+              height: MediaQuery.of(context).size.height * 0.54,
+              child: _productsTabView(_tabController),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -73,22 +117,29 @@ Widget _productsTab(TabController tabController) {
   return TabBar(
     tabs: const <Widget>[
       Tab(
-        text: 'Recommend',
+        text: 'Fruits',
       ),
       Tab(
-        text: 'Top',
+        text: 'Vegetables',
       ),
       Tab(
-        text: 'Indoor',
+        text: 'Breakfast',
       ),
       Tab(
-        text: 'Outdoor',
+        text: 'Beverages',
       ),
     ],
     controller: tabController,
     isScrollable: true,
-    indicator: UnderlineTabIndicator(borderSide: BorderSide.none),
-    labelColor: Color(0xff515151),
+    indicator: UnderlineTabIndicator(
+      borderSide: BorderSide(
+        width: 3,
+        color: Color(0xff462D1A),
+      ),
+    ),
+    labelPadding: EdgeInsets.symmetric(horizontal: 25),
+    indicatorSize: TabBarIndicatorSize.label,
+    labelColor: Color(0xff462D1A),
     labelStyle: TextStyle(
       fontWeight: FontWeight.bold,
       fontSize: 15,
@@ -97,5 +148,17 @@ Widget _productsTab(TabController tabController) {
       fontWeight: FontWeight.w700,
     ),
     unselectedLabelColor: Color(0xffB9B9B9),
+  );
+}
+
+Widget _productsTabView(TabController tabController) {
+  return TabBarView(
+    children: [
+      Text('Fruits'),
+      Text('Vegetables'),
+      Text('Breakfast'),
+      Text('Beverages'),
+    ],
+    controller: tabController,
   );
 }
