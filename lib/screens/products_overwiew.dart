@@ -44,8 +44,9 @@ class _ProductsOverwiewState extends State<ProductsOverwiew>
                       width: 28,
                     ),
                   ),
-                  Icon(
-                    Icons.shopping_basket,
+                  SvgPicture.asset(
+                    'assets/icons/bag.svg',
+                    width: 24,
                     color: Theme.of(context).accentColor,
                   ),
                 ],
