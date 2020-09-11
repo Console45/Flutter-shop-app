@@ -2,13 +2,40 @@ import 'package:Myshop/loaded_products.dart';
 import 'package:Myshop/models/products.dart';
 import 'package:flutter/material.dart';
 
-class Fruits extends StatelessWidget {
+class Fruits extends StatefulWidget {
+  @override
+  _FruitsState createState() => _FruitsState();
+}
+
+class _FruitsState extends State<Fruits> {
   final List<Color> bgColors = [
-    Color(0xffFFF4EA),
-    Color(0xffFFF8DF),
-    Color(0xffFFF0F0),
+    Color(0xffFEEEE4),
+    Color(0xffFFF9E3),
     Color(0xffF2FBE4),
+    Color(0xffFFF0F0),
   ];
+
+  List<Product> _fruits = [];
+  Color _bgColor;
+
+  @override
+  void initState() {
+    super.initState();
+    loadedProducts.forEach((product) {
+      if (product.category == Category.Fruits) _fruits.add(product);
+    });
+  }
+
+  void _setBgColor(int calories) {
+    if (calories <= 40)
+      _bgColor = Color(0xffFEEEE4);
+    else if (calories <= 60 && calories > 40)
+      _bgColor = Color(0xffFFF9E3);
+    else if (calories <= 80 && calories > 60)
+      _bgColor = Color(0xffF2FBE4);
+    else
+      _bgColor = Color(0xffFFF0F0);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,16 +49,16 @@ class Fruits extends StatelessWidget {
           mainAxisSpacing: 20,
         ),
         itemBuilder: (ctx, index) {
+          _setBgColor(_fruits[index].nutrition.calories);
+
           return Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(18),
-              color: bgColors[index],
+              color: _bgColor,
             ),
           );
         },
-        itemCount: loadedProducts
-            .where((product) => product.category == Category.Fruits)
-            .length,
+        itemCount: _fruits.length,
       ),
     );
   }
