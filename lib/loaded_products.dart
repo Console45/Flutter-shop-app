@@ -205,7 +205,7 @@ final List<Product> loadedProducts = [
     imageUrl: 'https://image.flaticon.com/icons/svg/1041/1041384.svg',
     category: Category.Fruits,
     nutrition: Nutrition(
-      calories: 52,
+      calories: 62,
       cabohydrate: '14 g',
       protein: '0.3 g',
       fat: '0.2 g',
