@@ -8,13 +8,6 @@ class Fruits extends StatefulWidget {
 }
 
 class _FruitsState extends State<Fruits> {
-  final List<Color> bgColors = [
-    Color(0xffFEEEE4),
-    Color(0xffFFF9E3),
-    Color(0xffF2FBE4),
-    Color(0xffFFF0F0),
-  ];
-
   List<Product> _fruits = [];
   Color _bgColor;
 
