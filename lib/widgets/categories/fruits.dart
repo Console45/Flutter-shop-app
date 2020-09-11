@@ -1,6 +1,7 @@
 import 'package:Myshop/loaded_products.dart';
 import 'package:Myshop/models/products.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class Fruits extends StatefulWidget {
   @override
@@ -45,6 +46,63 @@ class _FruitsState extends State<Fruits> {
           _setBgColor(_fruits[index].nutrition.calories);
 
           return Container(
+            padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Center(
+                  child: SvgPicture.network(
+                    _fruits[index].imageUrl,
+                    width: 80,
+                  ),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Text(
+                  _fruits[index].title,
+                  textAlign: TextAlign.left,
+                  style: Theme.of(context).textTheme.headline2,
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                Text(
+                  '1 lb',
+                  style: TextStyle(
+                      fontSize: 13,
+                      color: Color(0xffBC9492),
+                      fontWeight: FontWeight.w500),
+                ),
+                Row(
+                  children: [
+                    Text(
+                      '\$ ${_fruits[index].price}',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    GestureDetector(
+                      child: Container(
+                        padding: const EdgeInsets.all(10),
+                        child: SvgPicture.asset(
+                          'assets/icons/bag.svg',
+                          color: Theme.of(context).accentColor,
+                        ),
+                        height: 40,
+                        width: 40,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                    ),
+                  ],
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                )
+              ],
+            ),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(18),
               color: _bgColor,
