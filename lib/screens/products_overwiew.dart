@@ -1,4 +1,6 @@
-import 'package:Myshop/widgets/categories/fruits.dart';
+import 'package:Myshop/loaded_products.dart';
+import 'package:Myshop/models/products.dart';
+import 'package:Myshop/widgets/productsTab.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -10,10 +12,23 @@ class ProductsOverwiew extends StatefulWidget {
 class _ProductsOverwiewState extends State<ProductsOverwiew>
     with SingleTickerProviderStateMixin {
   TabController _tabController;
+
   @override
   void initState() {
     super.initState();
     _tabController = new TabController(length: 4, vsync: this);
+    loadedProducts.forEach((product) {
+      if (product.category == Category.Fruits) _fruits.add(product);
+    });
+    loadedProducts.forEach((product) {
+      if (product.category == Category.Vegetables) _vegetables.add(product);
+    });
+    loadedProducts.forEach((product) {
+      if (product.category == Category.Breakfast) _breakfast.add(product);
+    });
+    loadedProducts.forEach((product) {
+      if (product.category == Category.Beverages) _beverages.add(product);
+    });
   }
 
   @override
@@ -21,6 +36,11 @@ class _ProductsOverwiewState extends State<ProductsOverwiew>
     _tabController.dispose();
     super.dispose();
   }
+
+  List<Product> _fruits = [];
+  List<Product> _vegetables = [];
+  List<Product> _breakfast = [];
+  List<Product> _beverages = [];
 
   @override
   Widget build(BuildContext context) {
@@ -106,7 +126,13 @@ class _ProductsOverwiewState extends State<ProductsOverwiew>
             _productsTab(_tabController),
             Container(
               height: MediaQuery.of(context).size.height * 0.54,
-              child: _productsTabView(_tabController),
+              child: _productsTabView(
+                _tabController,
+                _fruits,
+                _vegetables,
+                _breakfast,
+                _beverages,
+              ),
             ),
           ],
         ),
@@ -153,13 +179,27 @@ Widget _productsTab(TabController tabController) {
   );
 }
 
-Widget _productsTabView(TabController tabController) {
+Widget _productsTabView(
+  TabController tabController,
+  List<Product> fruits,
+  List<Product> vegetables,
+  List<Product> breakfast,
+  List<Product> beverages,
+) {
   return TabBarView(
     children: [
-      Fruits(),
-      Text('Vegetables'),
-      Text('Breakfast'),
-      Text('Beverages'),
+      ProductsTab(
+        products: fruits,
+      ),
+      ProductsTab(
+        products: vegetables,
+      ),
+      ProductsTab(
+        products: breakfast,
+      ),
+      ProductsTab(
+        products: beverages,
+      ),
     ],
     controller: tabController,
   );
