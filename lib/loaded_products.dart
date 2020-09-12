@@ -10,7 +10,7 @@ final List<Product> loadedProducts = [
     imageUrl: 'https://image.flaticon.com/icons/svg/3142/3142534.svg',
     category: Category.Breakfast,
     nutrition: Nutrition(
-      calories: 278,
+      calories: 60,
       cabohydrate: '69 g',
       protein: '0.4 g',
       fat: '0.1 g',
@@ -70,7 +70,7 @@ final List<Product> loadedProducts = [
     imageUrl: 'https://image.flaticon.com/icons/svg/2764/2764134.svg',
     category: Category.Breakfast,
     nutrition: Nutrition(
-      calories: 50,
+      calories: 40,
       cabohydrate: '11 g',
       protein: '1.4 g',
       fat: '0.2 g',
@@ -100,7 +100,7 @@ final List<Product> loadedProducts = [
     imageUrl: 'https://image.flaticon.com/icons/svg/2935/2935394.svg',
     category: Category.Beverages,
     nutrition: Nutrition(
-      calories: 42,
+      calories: 81,
       cabohydrate: '5 g',
       protein: '3.4 g',
       fat: '1 g',
@@ -175,7 +175,7 @@ final List<Product> loadedProducts = [
     imageUrl: 'https://image.flaticon.com/icons/svg/3076/3076047.svg',
     category: Category.Beverages,
     nutrition: Nutrition(
-      calories: 35,
+      calories: 65,
       cabohydrate: '6.6 g',
       protein: '1.3 g',
       fat: '0.1 g',
@@ -190,7 +190,7 @@ final List<Product> loadedProducts = [
     imageUrl: 'https://image.flaticon.com/icons/svg/1919/1919011.svg',
     category: Category.Breakfast,
     nutrition: Nutrition(
-      calories: 357,
+      calories: 70,
       cabohydrate: '84 g',
       protein: '8 g',
       fat: '0.4 g',
@@ -220,7 +220,7 @@ final List<Product> loadedProducts = [
     imageUrl: 'https://image.flaticon.com/icons/svg/1992/1992720.svg',
     category: Category.Beverages,
     nutrition: Nutrition(
-      calories: 1,
+      calories: 3,
       cabohydrate: '0.2 g',
       protein: '0.1 g',
       fat: '0 g',
@@ -235,7 +235,7 @@ final List<Product> loadedProducts = [
     imageUrl: 'https://image.flaticon.com/icons/svg/951/951990.svg',
     category: Category.Vegetables,
     nutrition: Nutrition(
-      calories: 40,
+      calories: 61,
       cabohydrate: '9 g',
       protein: '1.1 g',
       fat: '0.1 g',
